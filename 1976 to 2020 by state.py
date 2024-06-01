@@ -8,7 +8,7 @@ import openpyxl
 
 
 file_name = "1976-2020-president.csv"
-file = file_name
+file = "./data_files/"+file_name
 res = 1
 df = pd.read_csv(file)
 df = df.reset_index(drop = True)
@@ -118,7 +118,7 @@ for i in range(0,len):
         df.loc[i, 'Winner'] = "Republican"
 
 
-df.to_excel("2024 results by state.xlsx")
+df.to_excel("./state_results/2024 results by state.xlsx")
 del df
 
 

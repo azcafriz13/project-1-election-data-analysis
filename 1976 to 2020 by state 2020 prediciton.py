@@ -6,7 +6,7 @@ import sys
 import openpyxl
 
 file_name = "1976-2020-president.csv"
-file = file_name
+file = "./data_files/"+file_name
 res = 1
 df = pd.read_csv(file)
 df = df.reset_index(drop = True)
@@ -116,7 +116,7 @@ for i in range(0,len):
     if (df.iloc[i, 2] > df.iloc[i, 1]) and (df.iloc[i, 2] > df.iloc[i, 3]):
         df.loc[i, 'Winner'] = "Republican"
 
-df.to_excel("2020 results by state.xlsx")
+df.to_excel("./state_results/2020 results by state.xlsx")
 del df
 
 

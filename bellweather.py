@@ -7,7 +7,7 @@ import openpyxl
 
 
 list_of_dataframes = []
-file = "Book1.xlsx"
+file = "./data_files/Book1.xlsx"
 wb = openpyxl.load_workbook(file)
 res = len(wb.sheetnames)
 
@@ -76,5 +76,5 @@ for i in range(0,len):
     if (df.iloc[i, 2] > df.iloc[i, 1]) and (df.iloc[i, 2] > df.iloc[i, 3]):
         df.loc[i, 'Winner'] = "Democratic"
 
-df.to_excel("bellweather 2024 output.xlsx")
+df.to_excel("./bellweather_results/bellweather 2024 output.xlsx")
 del df
