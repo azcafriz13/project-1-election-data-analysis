@@ -30,10 +30,30 @@ This section of code uploads historical presidential results for many elections.
 The results are this analyzed to trend voting tendencies towards major parties over time.
 This can be an indication of the trend of the next election.
 
+The approach we took with this was to pull general election results by site and party from 1976 to 2020. We did some data cleaning by aggregating 3rd party candidates into the "Other" category.
+We then used the Prophet time series forecast to predict the election results by state for 2024. We ran the model again to see how the model predicted the 2020 election results.
+The model is predicting a Democratic Win in 2024 with 51% of the vote and 272 electoral votes. The model correctly predicted a Democratic win in 2020 with 51% of the vote. It did miss on 4 states: Arizona, Iowa, Georgia and Ohio.
+
+- The code for this is in the git repository in the following files:
+<strong>'1976 to 2020 by state.py'</strong> and <strong>'1976 to 2020 by state 2020 prediciction.py'</strong>
+- The data can be found in <strong>'data_files'</strong> folder in the <strong>'1976-2020-president.csv'</strong>. file
+- The scripts will print the results into <strong>'state_results'</strong> directory
+
 **2. Historically Accurate Predictors**
 This section of the code analyzes how success voting districts are at the micro level
 in predicting the next POTUS.  The code sorts district results from high to low based upon
-how many times the district's selection for POTUS matched the final electoral college results.
+how many times the district's selection for POTUS matched the final electoral college results. 
+
+In this case, we identified 44 "bellweather" counties that have correctly predicted the outcome of each presidential election since 1980 save one.
+From there we ran a prophet model for each county to see what it will predict in 2024. The model is showing 38 counties will go Democratic and 6 will go Republican.
+We ran a prediction of the 2020 election and all but 2 counties went Democratic.
+
+- The code for this is in the git repository in the following files:
+<strong>'bellweather.py'</strong> and <strong>'bellweather 2020.py'</strong>
+
+- The data can be found in <strong>'data_files'</strong> folder in the <strong>'Sheet1.xlsx'</strong> file. The data was pulled from Wikipedia https://en.wikipedia.org/wiki/List_of_election_bellwether_counties_in_the_United_States
+
+- The scripts will  print the results into <strong>'bellweather_results'</strong> folder
 
 **3. Exit Poll Demographics**
 Because the individual votes of citizens is generally protected, most demographic data that
